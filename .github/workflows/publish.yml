@@ -16,9 +16,18 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Get Version
+      id: version-number
+      uses: paulhatch/semantic-version@v4.0.2
+      tag_prefix: "+semver:"
+      major_pattern: "major"
+      minor_pattern: "minor"
+      patch_pattern: "patch"
+      format: "${major}.${minor}.${patch}"
+      short_tags: false
     - name: CSharpResults Publish
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: src/CSharpResults/CSharpResults.csproj
         NUGET_KEY: ${{secrets.NUGET_KEY}}
-        TAG_FORMAT: +semver:*
+        VERSION_STATIC: ${{version-number.outputs.version}}
