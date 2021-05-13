@@ -23,7 +23,6 @@ jobs:
         tag_prefix: "+semver:"
         major_pattern: "major"
         minor_pattern: "minor"
-        patch_pattern: "patch"
         format: "${major}.${minor}.${patch}"
         short_tags: false
     - name: CSharpResults Publish
