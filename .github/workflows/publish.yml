@@ -13,10 +13,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-        run: dotnet restore
+      run: dotnet restore
     - name: Build
-        run: dotnet build --no-restore
-    - name: CSharpResults
+      run: dotnet build --no-restore
+    - name: CSharpResults Publish
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: src/CSharpResults/CSharpResults.csproj
