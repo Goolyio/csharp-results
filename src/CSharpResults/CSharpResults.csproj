@@ -1,7 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Title>CSharpResults</Title>
+    <Description>
+      A lightweight and flexible result library to wrap up successful responses and errors
+    </Description>
+    <Authors>Kieran Gookey</Authors>
+    <PackageProjectUrl>https://github.com/Goolyio/csharp-results</PackageProjectUrl>
+    <LangVersion>latest</LangVersion>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  
 </Project>
