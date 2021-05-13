@@ -19,12 +19,13 @@ jobs:
     - name: Get Version
       id: version-number
       uses: paulhatch/semantic-version@v4.0.2
-      tag_prefix: "+semver:"
-      major_pattern: "major"
-      minor_pattern: "minor"
-      patch_pattern: "patch"
-      format: "${major}.${minor}.${patch}"
-      short_tags: false
+      with:
+        tag_prefix: "+semver:"
+        major_pattern: "major"
+        minor_pattern: "minor"
+        patch_pattern: "patch"
+        format: "${major}.${minor}.${patch}"
+        short_tags: false
     - name: CSharpResults Publish
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
