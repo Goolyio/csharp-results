@@ -20,14 +20,16 @@ jobs:
       id: version-number
       uses: paulhatch/semantic-version@v4.0.2
       with:
-        tag_prefix: "+semver:"
-        major_pattern: "major"
-        minor_pattern: "minor"
+        tag_prefix: "v"
+        major_pattern: "+semver:major"
+        minor_pattern: "+semver:major"
         format: "${major}.${minor}.${patch}"
         short_tags: false
-    - name: CSharpResults Publish
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with:
-        PROJECT_FILE_PATH: src/CSharpResults/CSharpResults.csproj
-        NUGET_KEY: ${{secrets.NUGET_KEY}}
-        VERSION_STATIC: ${{steps.version-number.outputs.version}}
+    - name: echo result
+      run: echo '${{steps.version-number.outputs.version}}'
+    # - name: CSharpResults Publish
+    #   uses: brandedoutcast/publish-nuget@v2.5.5
+    #   with:
+    #     PROJECT_FILE_PATH: src/CSharpResults/CSharpResults.csproj
+    #     NUGET_KEY: ${{secrets.NUGET_KEY}}
+    #     VERSION_STATIC: ${{steps.version-number.outputs.version}}
