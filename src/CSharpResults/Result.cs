@@ -13,8 +13,19 @@ namespace CSharpResults
         private readonly E _error;
         private readonly T _value;
 
+        /// <summary>
+        /// Indicates whether or not the result is successful
+        /// </summary>
         public bool IsSuccess { get; }
+        /// <summary>
+        /// The successful value of type <typeparamref name="T"/>
+        /// </summary>
+        /// <exception cref="InvalidOperationException">If <see cref="IsSuccess"/> is false, attempting to access this property will result in a InvalidOperationException</exception>
         public T Value => IsSuccess ? _value : throw new InvalidOperationException("Cannot get the value as the result is unsucessful");
+        /// <summary>
+        /// The error value of type <typeparamref name="E"/>
+        /// </summary>
+        /// <exception cref="InvalidOperationException">If <see cref="IsSuccess"/> is true, attempting to access this property will result in a InvalidOperationException</exception>
         public E Error => !IsSuccess ? _error : throw new InvalidOperationException("Cannot get the error as the result is successful");
 
         internal Result(bool isSuccess, E error, T value)
